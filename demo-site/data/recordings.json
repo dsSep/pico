@@ -1,0 +1,2175 @@
+[
+  {
+    "id": "inspect",
+    "title": "Repository Inspection",
+    "prompt": "Map a small repository and explain its entry point.",
+    "mode": "Test Fixture / Recorded Run",
+    "provenance": "Existing Pico runtime + FakeModelClient; scripted decisions, real tool validation/execution. No live LLM.",
+    "files": {
+      "README.md": "# Calculator fixture\nA tiny repository for inspecting the Pico harness.\n",
+      "calculator.py": "def add(a, b):\n    return a - b\n",
+      "test_calculator.py": "from calculator import add\n\ndef test_add():\n    assert add(2, 3) == 5\n",
+      "failure.txt": "TEST FIXTURE: illustrative assertion output\nassert add(2, 3) == 5\nE assert -1 == 5\n"
+    },
+    "events": [
+      {
+        "created_at": "2026-10-27T01:56:33.906545+00:00",
+        "event": "run_started",
+        "task_id": "task_20261027-095633-0f035c",
+        "user_request": "Map a small repository and explain its entry point."
+      },
+      {
+        "created_at": "2026-10-27T01:56:34.303834+00:00",
+        "duration_ms": 390,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Map a small repository and explain its entry point."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 70,
+            "rendered_chars": 70,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 58,
+          "memory_chars": 145,
+          "prefix_changed": true,
+          "prefix_chars": 3201,
+          "prefix_hash": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_cache_supported": false,
+          "prompt_chars": 3520,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 23,
+            "rendered_chars": 23,
+            "rendered_count": 0,
+            "rendered_notes": [],
+            "selected_count": 0,
+            "selected_durable_count": 0,
+            "selected_kinds": [],
+            "selected_notes": [],
+            "selected_sources": []
+          },
+          "request_chars": 51,
+          "resume_status": "no-checkpoint",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 70,
+              "rendered_chars": 70
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 145,
+              "rendered_chars": 145
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3201,
+              "rendered_chars": 3201
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 23,
+              "rendered_chars": 23
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": true,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+        }
+      },
+      {
+        "attempts": 1,
+        "created_at": "2026-10-27T01:56:34.306262+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+        "tool_steps": 0
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:34.307653+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {},
+        "created_at": "2026-10-27T01:56:34.317331+00:00",
+        "diff_summary": [],
+        "duration_ms": 7,
+        "event": "tool_executed",
+        "name": "list_files",
+        "read_only": true,
+        "result": "[F] calculator.py\n[F] failure.txt\n[F] README.md\n[F] test_calculator.py",
+        "risk_level": "low",
+        "security_event_type": "",
+        "tool_error_code": "",
+        "tool_status": "ok",
+        "workspace_changed": false,
+        "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+      },
+      {
+        "checkpoint_id": "ckpt_a4c5460d",
+        "created_at": "2026-10-27T01:56:34.323011+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:34.714446+00:00",
+        "duration_ms": 384,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Map a small repository and explain its entry point."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 162,
+            "rendered_chars": 162,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 150,
+          "memory_chars": 145,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_cache_supported": false,
+          "prompt_chars": 3894,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 23,
+            "rendered_chars": 23,
+            "rendered_count": 0,
+            "rendered_notes": [],
+            "selected_count": 0,
+            "selected_durable_count": 0,
+            "selected_kinds": [],
+            "selected_notes": [],
+            "selected_sources": []
+          },
+          "request_chars": 51,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 162,
+              "rendered_chars": 162
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 145,
+              "rendered_chars": 145
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3483,
+              "rendered_chars": 3483
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 23,
+              "rendered_chars": 23
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+        }
+      },
+      {
+        "attempts": 2,
+        "created_at": "2026-10-27T01:56:34.716336+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+        "tool_steps": 1
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:34.717976+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {
+          "path": "README.md"
+        },
+        "created_at": "2026-10-27T01:56:34.737769+00:00",
+        "diff_summary": [],
+        "duration_ms": 17,
+        "event": "tool_executed",
+        "name": "read_file",
+        "read_only": true,
+        "result": "# README.md\n   1: # Calculator fixture\n   2: A tiny repository for inspecting the Pico harness.",
+        "risk_level": "low",
+        "security_event_type": "",
+        "tool_error_code": "",
+        "tool_status": "ok",
+        "workspace_changed": false,
+        "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+      },
+      {
+        "checkpoint_id": "ckpt_877e1c07",
+        "created_at": "2026-10-27T01:56:34.748587+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:35.158366+00:00",
+        "duration_ms": 403,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Map a small repository and explain its entry point."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 297,
+            "rendered_chars": 297,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 285,
+          "memory_chars": 246,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_cache_supported": false,
+          "prompt_chars": 4212,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 98,
+            "rendered_chars": 98,
+            "rendered_count": 1,
+            "rendered_notes": [
+              "1: # Calculator fixture | 2: A tiny repository for inspecting the Pico harness."
+            ],
+            "selected_count": 1,
+            "selected_durable_count": 0,
+            "selected_kinds": [
+              "episodic"
+            ],
+            "selected_notes": [
+              "1: # Calculator fixture | 2: A tiny repository for inspecting the Pico harness."
+            ],
+            "selected_sources": [
+              "README.md"
+            ]
+          },
+          "request_chars": 51,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 297,
+              "rendered_chars": 297
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 246,
+              "rendered_chars": 246
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3490,
+              "rendered_chars": 3490
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 98,
+              "rendered_chars": 98
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+        }
+      },
+      {
+        "attempts": 3,
+        "created_at": "2026-10-27T01:56:35.159770+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+        "tool_steps": 2
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:35.160909+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {
+          "path": "calculator.py"
+        },
+        "created_at": "2026-10-27T01:56:35.187897+00:00",
+        "diff_summary": [],
+        "duration_ms": 24,
+        "event": "tool_executed",
+        "name": "read_file",
+        "read_only": true,
+        "result": "# calculator.py\n   1: def add(a, b):\n   2:     return a - b",
+        "risk_level": "low",
+        "security_event_type": "",
+        "tool_error_code": "",
+        "tool_status": "ok",
+        "workspace_changed": false,
+        "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+      },
+      {
+        "checkpoint_id": "ckpt_8099e278",
+        "created_at": "2026-10-27T01:56:35.203537+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:35.707614+00:00",
+        "duration_ms": 496,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Map a small repository and explain its entry point."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 400,
+            "rendered_chars": 400,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 388,
+          "memory_chars": 320,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+          "prompt_cache_supported": false,
+          "prompt_chars": 4446,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 140,
+            "rendered_chars": 140,
+            "rendered_count": 2,
+            "rendered_notes": [
+              "1: # Calculator fixture | 2: A tiny repository for inspecting the Pico harness.",
+              "1: def add(a, b): | 2:     return a - b"
+            ],
+            "selected_count": 2,
+            "selected_durable_count": 0,
+            "selected_kinds": [
+              "episodic",
+              "episodic"
+            ],
+            "selected_notes": [
+              "1: # Calculator fixture | 2: A tiny repository for inspecting the Pico harness.",
+              "1: def add(a, b): | 2:     return a - b"
+            ],
+            "selected_sources": [
+              "README.md",
+              "calculator.py"
+            ]
+          },
+          "request_chars": 51,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 400,
+              "rendered_chars": 400
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 320,
+              "rendered_chars": 320
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3505,
+              "rendered_chars": 3505
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 140,
+              "rendered_chars": 140
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+        }
+      },
+      {
+        "attempts": 4,
+        "created_at": "2026-10-27T01:56:35.709031+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+        "tool_steps": 3
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:35.710359+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "final"
+      },
+      {
+        "checkpoint_id": "ckpt_c2782ed4",
+        "created_at": "2026-10-27T01:56:35.746808+00:00",
+        "event": "checkpoint_created",
+        "trigger": "run_finished"
+      },
+      {
+        "created_at": "2026-10-27T01:56:35.748531+00:00",
+        "event": "run_finished",
+        "final_answer": "This fixture contains a calculator module and a regression test. calculator.py exposes add(a, b). The harness listed the workspace and read both files before returning this scripted conclusion.",
+        "run_duration_ms": 1846,
+        "status": "completed",
+        "stop_reason": "final_answer_returned"
+      }
+    ],
+    "report": {
+      "attempts": 4,
+      "checkpoint_id": "ckpt_c2782ed4",
+      "durable_promotions": [],
+      "durable_rejections": [],
+      "durable_superseded": [],
+      "final_answer": "This fixture contains a calculator module and a regression test. calculator.py exposes add(a, b). The harness listed the workspace and read both files before returning this scripted conclusion.",
+      "prompt_metadata": {
+        "budget_reductions": [],
+        "current_request": {
+          "raw_chars": 51,
+          "rendered_chars": 51,
+          "section_chars": 73,
+          "text": "Map a small repository and explain its entry point."
+        },
+        "history": {
+          "collapsed_duplicate_reads": 0,
+          "older_entries_count": 0,
+          "raw_chars": 400,
+          "rendered_chars": 400,
+          "reused_file_summary_count": 0,
+          "summarized_tool_count": 0
+        },
+        "history_chars": 388,
+        "memory_chars": 320,
+        "prefix_changed": false,
+        "prefix_chars": 3201,
+        "prefix_hash": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+        "prompt_budget_chars": 12000,
+        "prompt_cache_key": "35d39da9faa30c806eb96671531db9b1cdd0e791dacfb54198704834cbf032e2",
+        "prompt_cache_supported": false,
+        "prompt_chars": 4446,
+        "prompt_over_budget": false,
+        "recent_commits": 0,
+        "reduction_order": [
+          "relevant_memory",
+          "history",
+          "memory",
+          "prefix"
+        ],
+        "relevant_memory": {
+          "limit": 3,
+          "raw_chars": 140,
+          "rendered_chars": 140,
+          "rendered_count": 2,
+          "rendered_notes": [
+            "1: # Calculator fixture | 2: A tiny repository for inspecting the Pico harness.",
+            "1: def add(a, b): | 2:     return a - b"
+          ],
+          "selected_count": 2,
+          "selected_durable_count": 0,
+          "selected_kinds": [
+            "episodic",
+            "episodic"
+          ],
+          "selected_notes": [
+            "1: # Calculator fixture | 2: A tiny repository for inspecting the Pico harness.",
+            "1: def add(a, b): | 2:     return a - b"
+          ],
+          "selected_sources": [
+            "README.md",
+            "calculator.py"
+          ]
+        },
+        "request_chars": 51,
+        "resume_status": "full-valid",
+        "runtime_identity_mismatch_fields": [],
+        "secret_env_count": 2,
+        "secret_env_names": [
+          "LLM_API_KEY",
+          "PICO_DEEPSEEK_API_KEY"
+        ],
+        "section_budgets": {
+          "current_request": null,
+          "history": 5200,
+          "memory": 1600,
+          "prefix": 3600,
+          "relevant_memory": 1200
+        },
+        "section_order": [
+          "prefix",
+          "memory",
+          "relevant_memory",
+          "history",
+          "current_request"
+        ],
+        "sections": {
+          "current_request": {
+            "budget_chars": null,
+            "raw_chars": 73,
+            "rendered_chars": 73
+          },
+          "history": {
+            "budget_chars": 5200,
+            "raw_chars": 400,
+            "rendered_chars": 400
+          },
+          "memory": {
+            "budget_chars": 1600,
+            "raw_chars": 320,
+            "rendered_chars": 320
+          },
+          "prefix": {
+            "budget_chars": 3600,
+            "raw_chars": 3505,
+            "rendered_chars": 3505
+          },
+          "relevant_memory": {
+            "budget_chars": 1200,
+            "raw_chars": 140,
+            "rendered_chars": 140
+          }
+        },
+        "stale_paths": [],
+        "stale_summary_invalidations": 0,
+        "tool_count": 7,
+        "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+        "workspace_changed": false,
+        "workspace_chars": 542,
+        "workspace_docs": 1,
+        "workspace_fingerprint": "5c83e682acae7839db40496fede319a445a81e26ae99d95761d41a0798ef1cfd"
+      },
+      "redacted_env": {
+        "secret_env_count": 2,
+        "secret_env_names": [
+          "LLM_API_KEY",
+          "PICO_DEEPSEEK_API_KEY"
+        ]
+      },
+      "resume_status": "no-checkpoint",
+      "run_id": "run_20261027-095633-8d2435",
+      "status": "completed",
+      "stop_reason": "final_answer_returned",
+      "task_id": "task_20261027-095633-0f035c",
+      "task_state": {
+        "attempts": 4,
+        "checkpoint_id": "ckpt_c2782ed4",
+        "final_answer": "This fixture contains a calculator module and a regression test. calculator.py exposes add(a, b). The harness listed the workspace and read both files before returning this scripted conclusion.",
+        "last_tool": "read_file",
+        "resume_status": "no-checkpoint",
+        "run_id": "run_20261027-095633-8d2435",
+        "status": "completed",
+        "stop_reason": "final_answer_returned",
+        "task_id": "task_20261027-095633-0f035c",
+        "tool_steps": 3,
+        "user_request": "Map a small repository and explain its entry point."
+      },
+      "tool_steps": 3
+    },
+    "state": {
+      "attempts": 4,
+      "checkpoint_id": "ckpt_c2782ed4",
+      "final_answer": "This fixture contains a calculator module and a regression test. calculator.py exposes add(a, b). The harness listed the workspace and read both files before returning this scripted conclusion.",
+      "last_tool": "read_file",
+      "resume_status": "no-checkpoint",
+      "run_id": "run_20261027-095633-8d2435",
+      "status": "completed",
+      "stop_reason": "final_answer_returned",
+      "task_id": "task_20261027-095633-0f035c",
+      "tool_steps": 3,
+      "user_request": "Map a small repository and explain its entry point."
+    },
+    "answer": "This fixture contains a calculator module and a regression test. calculator.py exposes add(a, b). The harness listed the workspace and read both files before returning this scripted conclusion."
+  },
+  {
+    "id": "tests",
+    "title": "Test Failure Investigation",
+    "prompt": "Inspect the failing test and propose a minimal fix.",
+    "mode": "Test Fixture / Recorded Run",
+    "provenance": "Existing Pico runtime + FakeModelClient; scripted decisions, real tool validation/execution. No live LLM.",
+    "files": {
+      "README.md": "# Calculator fixture\nA tiny repository for inspecting the Pico harness.\n",
+      "calculator.py": "def add(a, b):\n    return a - b\n",
+      "test_calculator.py": "from calculator import add\n\ndef test_add():\n    assert add(2, 3) == 5\n",
+      "failure.txt": "TEST FIXTURE: illustrative assertion output\nassert add(2, 3) == 5\nE assert -1 == 5\n"
+    },
+    "events": [
+      {
+        "created_at": "2026-10-27T01:56:36.360361+00:00",
+        "event": "run_started",
+        "task_id": "task_20261027-095636-7874a7",
+        "user_request": "Inspect the failing test and propose a minimal fix."
+      },
+      {
+        "created_at": "2026-10-27T01:56:36.967305+00:00",
+        "duration_ms": 597,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Inspect the failing test and propose a minimal fix."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 70,
+            "rendered_chars": 70,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 58,
+          "memory_chars": 145,
+          "prefix_changed": true,
+          "prefix_chars": 3201,
+          "prefix_hash": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_cache_supported": false,
+          "prompt_chars": 3520,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 23,
+            "rendered_chars": 23,
+            "rendered_count": 0,
+            "rendered_notes": [],
+            "selected_count": 0,
+            "selected_durable_count": 0,
+            "selected_kinds": [],
+            "selected_notes": [],
+            "selected_sources": []
+          },
+          "request_chars": 51,
+          "resume_status": "no-checkpoint",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 70,
+              "rendered_chars": 70
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 145,
+              "rendered_chars": 145
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3201,
+              "rendered_chars": 3201
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 23,
+              "rendered_chars": 23
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": true,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+        }
+      },
+      {
+        "attempts": 1,
+        "created_at": "2026-10-27T01:56:36.968952+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+        "tool_steps": 0
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:36.970254+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {
+          "path": "failure.txt"
+        },
+        "created_at": "2026-10-27T01:56:36.992685+00:00",
+        "diff_summary": [],
+        "duration_ms": 20,
+        "event": "tool_executed",
+        "name": "read_file",
+        "read_only": true,
+        "result": "# failure.txt\n   1: TEST FIXTURE: illustrative assertion output\n   2: assert add(2, 3) == 5\n   3: E assert -1 == 5",
+        "risk_level": "low",
+        "security_event_type": "",
+        "tool_error_code": "",
+        "tool_status": "ok",
+        "workspace_changed": false,
+        "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+      },
+      {
+        "checkpoint_id": "ckpt_aa81982b",
+        "created_at": "2026-10-27T01:56:37.006588+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:37.531541+00:00",
+        "duration_ms": 517,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Inspect the failing test and propose a minimal fix."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 226,
+            "rendered_chars": 226,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 214,
+          "memory_chars": 266,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_cache_supported": false,
+          "prompt_chars": 4179,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 114,
+            "rendered_chars": 114,
+            "rendered_count": 1,
+            "rendered_notes": [
+              "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+            ],
+            "selected_count": 1,
+            "selected_durable_count": 0,
+            "selected_kinds": [
+              "episodic"
+            ],
+            "selected_notes": [
+              "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+            ],
+            "selected_sources": [
+              "failure.txt"
+            ]
+          },
+          "request_chars": 51,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 226,
+              "rendered_chars": 226
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 266,
+              "rendered_chars": 266
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3492,
+              "rendered_chars": 3492
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 114,
+              "rendered_chars": 114
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+        }
+      },
+      {
+        "attempts": 2,
+        "created_at": "2026-10-27T01:56:37.533076+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+        "tool_steps": 1
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:37.535234+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {
+          "path": "calculator.py"
+        },
+        "created_at": "2026-10-27T01:56:37.569384+00:00",
+        "diff_summary": [],
+        "duration_ms": 30,
+        "event": "tool_executed",
+        "name": "read_file",
+        "read_only": true,
+        "result": "# calculator.py\n   1: def add(a, b):\n   2:     return a - b",
+        "risk_level": "low",
+        "security_event_type": "",
+        "tool_error_code": "",
+        "tool_status": "ok",
+        "workspace_changed": false,
+        "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+      },
+      {
+        "checkpoint_id": "ckpt_bd544346",
+        "created_at": "2026-10-27T01:56:37.586921+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:38.061719+00:00",
+        "duration_ms": 466,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Inspect the failing test and propose a minimal fix."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 329,
+            "rendered_chars": 329,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 317,
+          "memory_chars": 340,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_cache_supported": false,
+          "prompt_chars": 4413,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 156,
+            "rendered_chars": 156,
+            "rendered_count": 2,
+            "rendered_notes": [
+              "1: def add(a, b): | 2:     return a - b",
+              "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+            ],
+            "selected_count": 2,
+            "selected_durable_count": 0,
+            "selected_kinds": [
+              "episodic",
+              "episodic"
+            ],
+            "selected_notes": [
+              "1: def add(a, b): | 2:     return a - b",
+              "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+            ],
+            "selected_sources": [
+              "calculator.py",
+              "failure.txt"
+            ]
+          },
+          "request_chars": 51,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 329,
+              "rendered_chars": 329
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 340,
+              "rendered_chars": 340
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3507,
+              "rendered_chars": 3507
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 156,
+              "rendered_chars": 156
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+        }
+      },
+      {
+        "attempts": 3,
+        "created_at": "2026-10-27T01:56:38.063589+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+        "tool_steps": 2
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:38.065134+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {
+          "path": "test_calculator.py"
+        },
+        "created_at": "2026-10-27T01:56:38.109204+00:00",
+        "diff_summary": [],
+        "duration_ms": 42,
+        "event": "tool_executed",
+        "name": "read_file",
+        "read_only": true,
+        "result": "# test_calculator.py\n   1: from calculator import add\n   2: \n   3: def test_add():\n   4:     assert add(2, 3) == 5",
+        "risk_level": "low",
+        "security_event_type": "",
+        "tool_error_code": "",
+        "tool_status": "ok",
+        "workspace_changed": false,
+        "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+      },
+      {
+        "checkpoint_id": "ckpt_b34986fb",
+        "created_at": "2026-10-27T01:56:38.129684+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:38.606374+00:00",
+        "duration_ms": 469,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 51,
+            "rendered_chars": 51,
+            "section_chars": 73,
+            "text": "Inspect the failing test and propose a minimal fix."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 492,
+            "rendered_chars": 492,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 480,
+          "memory_chars": 440,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+          "prompt_cache_supported": false,
+          "prompt_chars": 4696,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 156,
+            "rendered_chars": 156,
+            "rendered_count": 2,
+            "rendered_notes": [
+              "1: def add(a, b): | 2:     return a - b",
+              "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+            ],
+            "selected_count": 2,
+            "selected_durable_count": 0,
+            "selected_kinds": [
+              "episodic",
+              "episodic"
+            ],
+            "selected_notes": [
+              "1: def add(a, b): | 2:     return a - b",
+              "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+            ],
+            "selected_sources": [
+              "calculator.py",
+              "failure.txt"
+            ]
+          },
+          "request_chars": 51,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 73,
+              "rendered_chars": 73
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 492,
+              "rendered_chars": 492
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 440,
+              "rendered_chars": 440
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3527,
+              "rendered_chars": 3527
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 156,
+              "rendered_chars": 156
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+        }
+      },
+      {
+        "attempts": 4,
+        "created_at": "2026-10-27T01:56:38.608072+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+        "tool_steps": 3
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:38.609522+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "final"
+      },
+      {
+        "checkpoint_id": "ckpt_e59492eb",
+        "created_at": "2026-10-27T01:56:38.664268+00:00",
+        "event": "checkpoint_created",
+        "trigger": "run_finished"
+      },
+      {
+        "created_at": "2026-10-27T01:56:38.665994+00:00",
+        "event": "run_finished",
+        "final_answer": "The recorded assertion expects add(2, 3) == 5, but calculator.py returns a - b. Proposed fix: return a + b. This read-only investigation does not apply or verify the change. failure.txt is an explicitly supplied test fixture, not a shell execution result.",
+        "run_duration_ms": 2311,
+        "status": "completed",
+        "stop_reason": "final_answer_returned"
+      }
+    ],
+    "report": {
+      "attempts": 4,
+      "checkpoint_id": "ckpt_e59492eb",
+      "durable_promotions": [],
+      "durable_rejections": [],
+      "durable_superseded": [],
+      "final_answer": "The recorded assertion expects add(2, 3) == 5, but calculator.py returns a - b. Proposed fix: return a + b. This read-only investigation does not apply or verify the change. failure.txt is an explicitly supplied test fixture, not a shell execution result.",
+      "prompt_metadata": {
+        "budget_reductions": [],
+        "current_request": {
+          "raw_chars": 51,
+          "rendered_chars": 51,
+          "section_chars": 73,
+          "text": "Inspect the failing test and propose a minimal fix."
+        },
+        "history": {
+          "collapsed_duplicate_reads": 0,
+          "older_entries_count": 0,
+          "raw_chars": 492,
+          "rendered_chars": 492,
+          "reused_file_summary_count": 0,
+          "summarized_tool_count": 0
+        },
+        "history_chars": 480,
+        "memory_chars": 440,
+        "prefix_changed": false,
+        "prefix_chars": 3201,
+        "prefix_hash": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+        "prompt_budget_chars": 12000,
+        "prompt_cache_key": "2c9e3b8190abd799341c3f52a3c088ce38763b0b28a44b784449b879b631230f",
+        "prompt_cache_supported": false,
+        "prompt_chars": 4696,
+        "prompt_over_budget": false,
+        "recent_commits": 0,
+        "reduction_order": [
+          "relevant_memory",
+          "history",
+          "memory",
+          "prefix"
+        ],
+        "relevant_memory": {
+          "limit": 3,
+          "raw_chars": 156,
+          "rendered_chars": 156,
+          "rendered_count": 2,
+          "rendered_notes": [
+            "1: def add(a, b): | 2:     return a - b",
+            "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+          ],
+          "selected_count": 2,
+          "selected_durable_count": 0,
+          "selected_kinds": [
+            "episodic",
+            "episodic"
+          ],
+          "selected_notes": [
+            "1: def add(a, b): | 2:     return a - b",
+            "1: TEST FIXTURE: illustrative assertion output | 2: assert add(2, 3) == 5 | 3: E assert -1 == 5"
+          ],
+          "selected_sources": [
+            "calculator.py",
+            "failure.txt"
+          ]
+        },
+        "request_chars": 51,
+        "resume_status": "full-valid",
+        "runtime_identity_mismatch_fields": [],
+        "secret_env_count": 2,
+        "secret_env_names": [
+          "LLM_API_KEY",
+          "PICO_DEEPSEEK_API_KEY"
+        ],
+        "section_budgets": {
+          "current_request": null,
+          "history": 5200,
+          "memory": 1600,
+          "prefix": 3600,
+          "relevant_memory": 1200
+        },
+        "section_order": [
+          "prefix",
+          "memory",
+          "relevant_memory",
+          "history",
+          "current_request"
+        ],
+        "sections": {
+          "current_request": {
+            "budget_chars": null,
+            "raw_chars": 73,
+            "rendered_chars": 73
+          },
+          "history": {
+            "budget_chars": 5200,
+            "raw_chars": 492,
+            "rendered_chars": 492
+          },
+          "memory": {
+            "budget_chars": 1600,
+            "raw_chars": 440,
+            "rendered_chars": 440
+          },
+          "prefix": {
+            "budget_chars": 3600,
+            "raw_chars": 3527,
+            "rendered_chars": 3527
+          },
+          "relevant_memory": {
+            "budget_chars": 1200,
+            "raw_chars": 156,
+            "rendered_chars": 156
+          }
+        },
+        "stale_paths": [],
+        "stale_summary_invalidations": 0,
+        "tool_count": 7,
+        "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+        "workspace_changed": false,
+        "workspace_chars": 542,
+        "workspace_docs": 1,
+        "workspace_fingerprint": "faffe2b98db3ceea6eb245e16e0e7a8981b356568702be23faa589bb788973f4"
+      },
+      "redacted_env": {
+        "secret_env_count": 2,
+        "secret_env_names": [
+          "LLM_API_KEY",
+          "PICO_DEEPSEEK_API_KEY"
+        ]
+      },
+      "resume_status": "no-checkpoint",
+      "run_id": "run_20261027-095636-41dc8e",
+      "status": "completed",
+      "stop_reason": "final_answer_returned",
+      "task_id": "task_20261027-095636-7874a7",
+      "task_state": {
+        "attempts": 4,
+        "checkpoint_id": "ckpt_e59492eb",
+        "final_answer": "The recorded assertion expects add(2, 3) == 5, but calculator.py returns a - b. Proposed fix: return a + b. This read-only investigation does not apply or verify the change. failure.txt is an explicitly supplied test fixture, not a shell execution result.",
+        "last_tool": "read_file",
+        "resume_status": "no-checkpoint",
+        "run_id": "run_20261027-095636-41dc8e",
+        "status": "completed",
+        "stop_reason": "final_answer_returned",
+        "task_id": "task_20261027-095636-7874a7",
+        "tool_steps": 3,
+        "user_request": "Inspect the failing test and propose a minimal fix."
+      },
+      "tool_steps": 3
+    },
+    "state": {
+      "attempts": 4,
+      "checkpoint_id": "ckpt_e59492eb",
+      "final_answer": "The recorded assertion expects add(2, 3) == 5, but calculator.py returns a - b. Proposed fix: return a + b. This read-only investigation does not apply or verify the change. failure.txt is an explicitly supplied test fixture, not a shell execution result.",
+      "last_tool": "read_file",
+      "resume_status": "no-checkpoint",
+      "run_id": "run_20261027-095636-41dc8e",
+      "status": "completed",
+      "stop_reason": "final_answer_returned",
+      "task_id": "task_20261027-095636-7874a7",
+      "tool_steps": 3,
+      "user_request": "Inspect the failing test and propose a minimal fix."
+    },
+    "answer": "The recorded assertion expects add(2, 3) == 5, but calculator.py returns a - b. Proposed fix: return a + b. This read-only investigation does not apply or verify the change. failure.txt is an explicitly supplied test fixture, not a shell execution result."
+  },
+  {
+    "id": "permissions",
+    "title": "Permission & Failure Handling",
+    "prompt": "Try a write in read-only mode, then inspect an unavailable file.",
+    "mode": "Test Fixture / Recorded Run",
+    "provenance": "Existing Pico runtime + FakeModelClient; scripted decisions, real tool validation/execution. No live LLM.",
+    "files": {
+      "README.md": "# Calculator fixture\nA tiny repository for inspecting the Pico harness.\n",
+      "calculator.py": "def add(a, b):\n    return a - b\n",
+      "test_calculator.py": "from calculator import add\n\ndef test_add():\n    assert add(2, 3) == 5\n",
+      "failure.txt": "TEST FIXTURE: illustrative assertion output\nassert add(2, 3) == 5\nE assert -1 == 5\n"
+    },
+    "events": [
+      {
+        "created_at": "2026-10-27T01:56:39.198414+00:00",
+        "event": "run_started",
+        "task_id": "task_20261027-095639-679190",
+        "user_request": "Try a write in read-only mode, then inspect an unavailable file."
+      },
+      {
+        "created_at": "2026-10-27T01:56:39.609350+00:00",
+        "duration_ms": 403,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 64,
+            "rendered_chars": 64,
+            "section_chars": 86,
+            "text": "Try a write in read-only mode, then inspect an unavailable file."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 83,
+            "rendered_chars": 83,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 71,
+          "memory_chars": 158,
+          "prefix_changed": true,
+          "prefix_chars": 3201,
+          "prefix_hash": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+          "prompt_cache_supported": false,
+          "prompt_chars": 3559,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 23,
+            "rendered_chars": 23,
+            "rendered_count": 0,
+            "rendered_notes": [],
+            "selected_count": 0,
+            "selected_durable_count": 0,
+            "selected_kinds": [],
+            "selected_notes": [],
+            "selected_sources": []
+          },
+          "request_chars": 64,
+          "resume_status": "no-checkpoint",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 86,
+              "rendered_chars": 86
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 83,
+              "rendered_chars": 83
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 158,
+              "rendered_chars": 158
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3201,
+              "rendered_chars": 3201
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 23,
+              "rendered_chars": 23
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": true,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "36aed2b5d0097baa53b98ba4e5d92ec8dff80968160caa06a09b4769fe1047fc"
+        }
+      },
+      {
+        "attempts": 1,
+        "created_at": "2026-10-27T01:56:39.610911+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+        "tool_steps": 0
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:39.612225+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {
+          "content": "blocked",
+          "path": "calculator.py"
+        },
+        "created_at": "2026-10-27T01:56:39.620474+00:00",
+        "diff_summary": [],
+        "duration_ms": 5,
+        "event": "tool_executed",
+        "name": "write_file",
+        "read_only": false,
+        "result": "error: approval denied for write_file",
+        "risk_level": "high",
+        "security_event_type": "read_only_block",
+        "tool_error_code": "approval_denied",
+        "tool_status": "rejected",
+        "workspace_changed": false
+      },
+      {
+        "checkpoint_id": "ckpt_d074f07a",
+        "created_at": "2026-10-27T01:56:39.629738+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:40.067716+00:00",
+        "duration_ms": 429,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 64,
+            "rendered_chars": 64,
+            "section_chars": 86,
+            "text": "Try a write in read-only mode, then inspect an unavailable file."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 187,
+            "rendered_chars": 187,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 175,
+          "memory_chars": 158,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+          "prompt_cache_supported": false,
+          "prompt_chars": 3971,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 23,
+            "rendered_chars": 23,
+            "rendered_count": 0,
+            "rendered_notes": [],
+            "selected_count": 0,
+            "selected_durable_count": 0,
+            "selected_kinds": [],
+            "selected_notes": [],
+            "selected_sources": []
+          },
+          "request_chars": 64,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 86,
+              "rendered_chars": 86
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 187,
+              "rendered_chars": 187
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 158,
+              "rendered_chars": 158
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3509,
+              "rendered_chars": 3509
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 23,
+              "rendered_chars": 23
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "36aed2b5d0097baa53b98ba4e5d92ec8dff80968160caa06a09b4769fe1047fc"
+        }
+      },
+      {
+        "attempts": 2,
+        "created_at": "2026-10-27T01:56:40.069421+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+        "tool_steps": 1
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:40.071398+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "tool"
+      },
+      {
+        "affected_paths": [],
+        "args": {
+          "path": "missing.py"
+        },
+        "created_at": "2026-10-27T01:56:40.079725+00:00",
+        "diff_summary": [],
+        "duration_ms": 5,
+        "event": "tool_executed",
+        "name": "read_file",
+        "read_only": true,
+        "result": "error: invalid arguments for read_file: path is not a file\nexample: <tool>{\"name\":\"read_file\",\"args\":{\"path\":\"README.md\",\"start\":1,\"end\":80}}</tool>",
+        "risk_level": "low",
+        "security_event_type": "",
+        "tool_error_code": "invalid_arguments",
+        "tool_status": "rejected",
+        "workspace_changed": false
+      },
+      {
+        "checkpoint_id": "ckpt_43726549",
+        "created_at": "2026-10-27T01:56:40.085676+00:00",
+        "event": "checkpoint_created",
+        "trigger": "tool_executed"
+      },
+      {
+        "created_at": "2026-10-27T01:56:40.492862+00:00",
+        "duration_ms": 399,
+        "event": "prompt_built",
+        "prompt_metadata": {
+          "budget_reductions": [],
+          "current_request": {
+            "raw_chars": 64,
+            "rendered_chars": 64,
+            "section_chars": 86,
+            "text": "Try a write in read-only mode, then inspect an unavailable file."
+          },
+          "history": {
+            "collapsed_duplicate_reads": 0,
+            "older_entries_count": 0,
+            "raw_chars": 376,
+            "rendered_chars": 376,
+            "reused_file_summary_count": 0,
+            "summarized_tool_count": 0
+          },
+          "history_chars": 364,
+          "memory_chars": 158,
+          "prefix_changed": false,
+          "prefix_chars": 3201,
+          "prefix_hash": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+          "prompt_budget_chars": 12000,
+          "prompt_cache_key": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+          "prompt_cache_supported": false,
+          "prompt_chars": 4159,
+          "prompt_over_budget": false,
+          "recent_commits": 0,
+          "reduction_order": [
+            "relevant_memory",
+            "history",
+            "memory",
+            "prefix"
+          ],
+          "relevant_memory": {
+            "limit": 3,
+            "raw_chars": 23,
+            "rendered_chars": 23,
+            "rendered_count": 0,
+            "rendered_notes": [],
+            "selected_count": 0,
+            "selected_durable_count": 0,
+            "selected_kinds": [],
+            "selected_notes": [],
+            "selected_sources": []
+          },
+          "request_chars": 64,
+          "resume_status": "full-valid",
+          "runtime_identity_mismatch_fields": [],
+          "secret_env_count": 2,
+          "secret_env_names": [
+            "LLM_API_KEY",
+            "PICO_DEEPSEEK_API_KEY"
+          ],
+          "section_budgets": {
+            "current_request": null,
+            "history": 5200,
+            "memory": 1600,
+            "prefix": 3600,
+            "relevant_memory": 1200
+          },
+          "section_order": [
+            "prefix",
+            "memory",
+            "relevant_memory",
+            "history",
+            "current_request"
+          ],
+          "sections": {
+            "current_request": {
+              "budget_chars": null,
+              "raw_chars": 86,
+              "rendered_chars": 86
+            },
+            "history": {
+              "budget_chars": 5200,
+              "raw_chars": 376,
+              "rendered_chars": 376
+            },
+            "memory": {
+              "budget_chars": 1600,
+              "raw_chars": 158,
+              "rendered_chars": 158
+            },
+            "prefix": {
+              "budget_chars": 3600,
+              "raw_chars": 3508,
+              "rendered_chars": 3508
+            },
+            "relevant_memory": {
+              "budget_chars": 1200,
+              "raw_chars": 23,
+              "rendered_chars": 23
+            }
+          },
+          "stale_paths": [],
+          "stale_summary_invalidations": 0,
+          "tool_count": 7,
+          "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+          "workspace_changed": false,
+          "workspace_chars": 542,
+          "workspace_docs": 1,
+          "workspace_fingerprint": "36aed2b5d0097baa53b98ba4e5d92ec8dff80968160caa06a09b4769fe1047fc"
+        }
+      },
+      {
+        "attempts": 3,
+        "created_at": "2026-10-27T01:56:40.494700+00:00",
+        "event": "model_requested",
+        "prompt_cache_key": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+        "tool_steps": 2
+      },
+      {
+        "completion_metadata": {},
+        "created_at": "2026-10-27T01:56:40.496091+00:00",
+        "duration_ms": 0,
+        "event": "model_parsed",
+        "kind": "final"
+      },
+      {
+        "checkpoint_id": "ckpt_c9060086",
+        "created_at": "2026-10-27T01:56:40.502678+00:00",
+        "event": "checkpoint_created",
+        "trigger": "run_finished"
+      },
+      {
+        "created_at": "2026-10-27T01:56:40.504620+00:00",
+        "event": "run_finished",
+        "final_answer": "The harness denied write_file in read-only mode and returned a validation error for missing.py. The original file remains unchanged. Tool errors are observations: the scripted model can still return a final answer.",
+        "run_duration_ms": 1311,
+        "status": "completed",
+        "stop_reason": "final_answer_returned"
+      }
+    ],
+    "report": {
+      "attempts": 3,
+      "checkpoint_id": "ckpt_c9060086",
+      "durable_promotions": [],
+      "durable_rejections": [],
+      "durable_superseded": [],
+      "final_answer": "The harness denied write_file in read-only mode and returned a validation error for missing.py. The original file remains unchanged. Tool errors are observations: the scripted model can still return a final answer.",
+      "prompt_metadata": {
+        "budget_reductions": [],
+        "current_request": {
+          "raw_chars": 64,
+          "rendered_chars": 64,
+          "section_chars": 86,
+          "text": "Try a write in read-only mode, then inspect an unavailable file."
+        },
+        "history": {
+          "collapsed_duplicate_reads": 0,
+          "older_entries_count": 0,
+          "raw_chars": 376,
+          "rendered_chars": 376,
+          "reused_file_summary_count": 0,
+          "summarized_tool_count": 0
+        },
+        "history_chars": 364,
+        "memory_chars": 158,
+        "prefix_changed": false,
+        "prefix_chars": 3201,
+        "prefix_hash": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+        "prompt_budget_chars": 12000,
+        "prompt_cache_key": "a0f1cb755251beeda220c9b665ffc2e2189455fa261c6193335eeafd6dda32da",
+        "prompt_cache_supported": false,
+        "prompt_chars": 4159,
+        "prompt_over_budget": false,
+        "recent_commits": 0,
+        "reduction_order": [
+          "relevant_memory",
+          "history",
+          "memory",
+          "prefix"
+        ],
+        "relevant_memory": {
+          "limit": 3,
+          "raw_chars": 23,
+          "rendered_chars": 23,
+          "rendered_count": 0,
+          "rendered_notes": [],
+          "selected_count": 0,
+          "selected_durable_count": 0,
+          "selected_kinds": [],
+          "selected_notes": [],
+          "selected_sources": []
+        },
+        "request_chars": 64,
+        "resume_status": "full-valid",
+        "runtime_identity_mismatch_fields": [],
+        "secret_env_count": 2,
+        "secret_env_names": [
+          "LLM_API_KEY",
+          "PICO_DEEPSEEK_API_KEY"
+        ],
+        "section_budgets": {
+          "current_request": null,
+          "history": 5200,
+          "memory": 1600,
+          "prefix": 3600,
+          "relevant_memory": 1200
+        },
+        "section_order": [
+          "prefix",
+          "memory",
+          "relevant_memory",
+          "history",
+          "current_request"
+        ],
+        "sections": {
+          "current_request": {
+            "budget_chars": null,
+            "raw_chars": 86,
+            "rendered_chars": 86
+          },
+          "history": {
+            "budget_chars": 5200,
+            "raw_chars": 376,
+            "rendered_chars": 376
+          },
+          "memory": {
+            "budget_chars": 1600,
+            "raw_chars": 158,
+            "rendered_chars": 158
+          },
+          "prefix": {
+            "budget_chars": 3600,
+            "raw_chars": 3508,
+            "rendered_chars": 3508
+          },
+          "relevant_memory": {
+            "budget_chars": 1200,
+            "raw_chars": 23,
+            "rendered_chars": 23
+          }
+        },
+        "stale_paths": [],
+        "stale_summary_invalidations": 0,
+        "tool_count": 7,
+        "tool_signature": "4426765ffaaf28349778456b4696f3dae2f5ff87eb4b74ad4e8c4e86ee0437fb",
+        "workspace_changed": false,
+        "workspace_chars": 542,
+        "workspace_docs": 1,
+        "workspace_fingerprint": "36aed2b5d0097baa53b98ba4e5d92ec8dff80968160caa06a09b4769fe1047fc"
+      },
+      "redacted_env": {
+        "secret_env_count": 2,
+        "secret_env_names": [
+          "LLM_API_KEY",
+          "PICO_DEEPSEEK_API_KEY"
+        ]
+      },
+      "resume_status": "no-checkpoint",
+      "run_id": "run_20261027-095639-39d0cc",
+      "status": "completed",
+      "stop_reason": "final_answer_returned",
+      "task_id": "task_20261027-095639-679190",
+      "task_state": {
+        "attempts": 3,
+        "checkpoint_id": "ckpt_c9060086",
+        "final_answer": "The harness denied write_file in read-only mode and returned a validation error for missing.py. The original file remains unchanged. Tool errors are observations: the scripted model can still return a final answer.",
+        "last_tool": "read_file",
+        "resume_status": "no-checkpoint",
+        "run_id": "run_20261027-095639-39d0cc",
+        "status": "completed",
+        "stop_reason": "final_answer_returned",
+        "task_id": "task_20261027-095639-679190",
+        "tool_steps": 2,
+        "user_request": "Try a write in read-only mode, then inspect an unavailable file."
+      },
+      "tool_steps": 2
+    },
+    "state": {
+      "attempts": 3,
+      "checkpoint_id": "ckpt_c9060086",
+      "final_answer": "The harness denied write_file in read-only mode and returned a validation error for missing.py. The original file remains unchanged. Tool errors are observations: the scripted model can still return a final answer.",
+      "last_tool": "read_file",
+      "resume_status": "no-checkpoint",
+      "run_id": "run_20261027-095639-39d0cc",
+      "status": "completed",
+      "stop_reason": "final_answer_returned",
+      "task_id": "task_20261027-095639-679190",
+      "tool_steps": 2,
+      "user_request": "Try a write in read-only mode, then inspect an unavailable file."
+    },
+    "answer": "The harness denied write_file in read-only mode and returned a validation error for missing.py. The original file remains unchanged. Tool errors are observations: the scripted model can still return a final answer."
+  }
+]

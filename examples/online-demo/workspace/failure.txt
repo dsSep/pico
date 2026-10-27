@@ -1,0 +1,3 @@
+TEST FIXTURE: illustrative assertion output
+assert add(2, 3) == 5
+E assert -1 == 5
