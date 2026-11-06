@@ -1,6 +1,6 @@
 # 开发与维护
 
-唯一维护仓库是 `tianxiangliu-ds/pico`，Python 包名与 CLI 命令均为 `pico`。`examples/mini-pico/` 是同仓维护的教学示例。
+唯一维护仓库是 `dsSep/pico`，Python 包名与 CLI 命令均为 `pico`。`examples/mini-pico/` 是同仓维护的教学示例。
 
 需要 Python 3.10+。在虚拟环境中安装项目、教学版和测试依赖：
 

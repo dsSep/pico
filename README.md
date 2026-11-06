@@ -1,6 +1,6 @@
 # pico
 
-项目唯一维护仓库是 [tianxiangliu-ds/pico](https://github.com/tianxiangliu-ds/pico)。原 `pico-agent` 仓库仅有重复的 README，现已统一到这里；包名、CLI 命令和模块入口均保持 `pico`。
+项目唯一维护仓库是 [dsSep/pico](https://github.com/dsSep/pico)。原 `pico-agent` 仓库仅有重复的 README，现已统一到这里；包名、CLI 命令和模块入口均保持 `pico`。
 
 `pico` 是一个面向代码仓库的轻量本地 coding agent。它直接跑在终端里，先看当前工作区，再用一组受约束的工具去读文件、改文件、跑命令，并把会话状态保存在本地 `.pico/` 目录里。
 

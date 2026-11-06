@@ -3,7 +3,7 @@ import {useEffect,useRef,useState} from 'react';
 import recordings from '../data/recordings.json';
 import {nodeForEvent} from '../lib/contracts.mjs';
 import {zh,scenarioText} from '../lib/zh.mjs';
-const github='https://github.com/tianxiangliu-ds/pico';
+const github='https://github.com/dsSep/pico';
 const modules=[['执行循环','runtime.py','管理模型决策、工具反馈和有步数限制的执行循环。'],['模型适配','providers/clients.py','支持 Ollama、兼容 OpenAI 的 Responses、兼容 Anthropic 的 Messages，以及通过 Anthropic 接口接入的 DeepSeek。'],['工具注册','tools.py','显式注册工具，定义参数规范，校验调用，支持精确匹配补丁和受限委派。'],['审批与边界','runtime.py','提供审批策略、只读模式、路径检查与受限 Shell 环境。这些控制措施不等同于操作系统沙箱。'],['上下文与记忆','context_manager.py','管理上下文压缩、分层记忆、检查点和内容新鲜度；另见 features/memory.py。'],['运行产物','run_store.py','追加写入 trace.jsonl，以原子方式保存 report.json 和 task_state.json 快照。'],['评测验证','evaluation/evaluator.py','使用确定性测试夹具与产物验证。这些回放不衡量模型能力。'],['恢复与停止','task_state.py','明确记录步骤与重试上限，以及错误停止原因。工具发生错误后，模型仍可能返回最终答案。']];
 const nodes=['User request','Pico harness','Model','Tool decision','Permission check','Tool execution','Observation','Model continuation','Final result'];
 export default function Home(){
